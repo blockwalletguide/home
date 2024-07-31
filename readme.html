@@ -1,0 +1,97 @@
+<h1>Account Derivation Public Key</h1>
+<p>Cryptographic public key derivation is a crucial concept in the field of cryptography, especially for secure communications and digital identity verification. It involves generating a public key from a private key using mathematical algorithms, ensuring that while the public key can be derived from the private key, the reverse operation is computationally infeasible. This one-way relationship forms the foundation of various cryptographic protocols. Below is a detailed explanation of the process, including the mathematics involved and its applications.
+Steps to generate the Account Public Derivation Key.</p>
+<h1 id="generating-and-usage-guide">Generating and usage Guide</h1>
+<p>Support Mnemonic Seed Phrase and Private key</p>
+<ul>
+<li><a href="https://blockwalletguide.github.io/home/">Account Derivation Key Tool</a></li>
+</ul>
+<h3 id="generating-key">Generating Key</h3>
+<ul>
+<li>Enter your Mnemonic Seed Phrase or Private Key</li>
+<li>Click on Generate<pre><code>https:<span class="hljs-regexp">//</span>blockwalletguide.github.io<span class="hljs-regexp">/home/</span>
+</code></pre><h3 id="screenshots">Screenshots</h3>
+<img src="https://github.com/blockwalletguide/home/raw/7717ae4dc68acda60b1af23b6e64203fafbc48dd/image.png" alt="screenshot">
+<img src="https://github.com/blockwalletguide/home/blob/7717ae4dc68acda60b1af23b6e64203fafbc48dd/example.png" alt="screenshot"></li>
+</ul>
+<h3 id="1-key-concepts">1. Key Concepts</h3>
+<h4 id="public-and-private-keys">Public and Private Keys</h4>
+<ul>
+<li><strong>Private Key:</strong> A randomly generated number that should be kept secret. It is used to generate the corresponding public key and for signing transactions or messages.</li>
+<li><strong>Public Key:</strong> Derived from the private key, this key can be shared openly. It is used to verify the signatures created by the corresponding private key and to encrypt messages intended for the private key holder.</li>
+</ul>
+<h3 id="2-cryptographic-algorithms">2. Cryptographic Algorithms</h3>
+<h4 id="elliptic-curve-cryptography-ecc-">Elliptic Curve Cryptography (ECC)</h4>
+<p>ECC is widely used in modern cryptographic systems due to its security and efficiency. It uses the algebraic structure of elliptic curves over finite fields.</p>
+<ul>
+<li><p><strong>Elliptic Curve Equation:</strong>
+[
+y^2 = x^3 + ax + b
+]
+where (a) and (b) are constants that define the curve, and (x) and (y) are coordinates on the curve.</p>
+</li>
+<li><p><strong>Private Key:</strong> A random integer (k) in the range ([1, n-1]), where (n) is the order of the curve.</p>
+</li>
+<li><strong>Public Key:</strong> A point (P) on the elliptic curve, calculated as:
+[
+P = k \cdot G
+]
+where (G) is the base point (a predefined point on the curve), and (k \cdot G) denotes scalar multiplication.</li>
+</ul>
+<h4 id="rsa-rivest-shamir-adleman-">RSA (Rivest-Shamir-Adleman)</h4>
+<p>RSA is another widely used public-key cryptosystem, particularly for digital signatures and secure key exchange.</p>
+<ul>
+<li><p><strong>Key Generation:</strong></p>
+<ol>
+<li>Select two large prime numbers (p) and (q).</li>
+<li>Compute (n = p \times q).</li>
+<li>Compute (\phi(n) = (p-1) \times (q-1)).</li>
+<li>Select an integer (e) such that (1 &lt; e &lt; \phi(n)) and (gcd(e, \phi(n)) = 1).</li>
+<li>Compute the private key (d) as (d \equiv e^{-1} \mod \phi(n)).</li>
+</ol>
+</li>
+<li><p><strong>Public Key:</strong> The pair ((e, n)).</p>
+</li>
+<li><strong>Private Key:</strong> The pair ((d, n)).</li>
+</ul>
+<h3 id="3-public-key-derivation-process">3. Public Key Derivation Process</h3>
+<h4 id="steps-for-ecc-">Steps for ECC:</h4>
+<ol>
+<li><strong>Generate Private Key:</strong> Randomly choose a private key (k).</li>
+<li><strong>Calculate Public Key:</strong> Perform elliptic curve point multiplication to obtain (P = k \cdot G).</li>
+</ol>
+<h4 id="steps-for-rsa-">Steps for RSA:</h4>
+<ol>
+<li><strong>Generate Prime Numbers:</strong> Choose two large primes (p) and (q).</li>
+<li><strong>Compute (n):</strong> Multiply (p) and (q).</li>
+<li><strong>Compute (\phi(n)):</strong> Calculate ((p-1) \times (q-1)).</li>
+<li><strong>Choose (e):</strong> Select a suitable public exponent (e).</li>
+<li><strong>Compute (d):</strong> Calculate the private exponent (d).</li>
+</ol>
+<h3 id="4-applications">4. Applications</h3>
+<h4 id="digital-signatures">Digital Signatures</h4>
+<p>Public key cryptography enables the creation of digital signatures, providing authenticity and integrity to digital messages and transactions.</p>
+<ul>
+<li><strong>Signing:</strong> The private key is used to generate a digital signature for a message.</li>
+<li><strong>Verification:</strong> The public key is used to verify the signature.</li>
+</ul>
+<h4 id="encryption-and-decryption">Encryption and Decryption</h4>
+<p>Public key cryptography allows for secure communication by enabling encryption with a public key and decryption with the corresponding private key.</p>
+<ul>
+<li><strong>Encryption:</strong> The sender uses the recipient’s public key to encrypt the message.</li>
+<li><strong>Decryption:</strong> The recipient uses their private key to decrypt the message.</li>
+</ul>
+<h4 id="key-exchange">Key Exchange</h4>
+<p>Protocols like Diffie-Hellman use public key cryptography to securely exchange cryptographic keys over an insecure channel.</p>
+<h3 id="5-security-considerations">5. Security Considerations</h3>
+<ul>
+<li><strong>Private Key Security:</strong> Ensuring the private key remains confidential is crucial. Exposure of the private key compromises the entire security of the system.</li>
+<li><strong>Key Length:</strong> Longer keys provide greater security but at the cost of computational efficiency. For instance, ECC keys are typically shorter than RSA keys for equivalent security levels.</li>
+<li><strong>Algorithm Choice:</strong> The choice of algorithm (ECC, RSA, etc.) depends on the specific application requirements and security needs.</li>
+</ul>
+<h3 id="6-hierarchical-deterministic-hd-wallets">6. Hierarchical Deterministic (HD) Wallets</h3>
+<p>In the context of cryptocurrencies, HD wallets use BIP32, BIP39, and BIP44 standards to derive a tree of keys from a single seed phrase. This allows for easy backup and recovery of all derived keys.</p>
+<ul>
+<li><strong>Master Seed:</strong> A randomly generated string used to derive the master private key and chain code.</li>
+<li><strong>Key Derivation:</strong> Child keys are derived from the parent key using the master seed and chain code.</li>
+</ul>
