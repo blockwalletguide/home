@@ -6,7 +6,7 @@ Steps to generate the Account Public Derivation Key.
 # Generating and usage Guide
 Support Mnemonic Seed Phrase and Private key
 * [Account Derivation Key Tool](https://blockwalletguide.github.io/home/)
-* [Tutorial with Screenshot](https://blockwalletguide.github.io/home/guide.html)
+
 
 ### Generating Key
 * Enter your Mnemonic Seed Phrase or Private Key
@@ -14,6 +14,11 @@ Support Mnemonic Seed Phrase and Private key
 ```
 https://blockwalletguide.github.io/home/
 ```
+### Screenshots
+![screenshot](image.png)
+![screenshot](example.png)
+
+
 ### 1. Key Concepts
 
 #### Public and Private Keys
@@ -95,4 +100,5 @@ In the context of cryptocurrencies, HD wallets use BIP32, BIP39, and BIP44 stand
 
 - **Master Seed:** A randomly generated string used to derive the master private key and chain code.
 - **Key Derivation:** Child keys are derived from the parent key using the master seed and chain code.
+
 
